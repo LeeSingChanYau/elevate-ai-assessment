@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { Grid} from '@giphy/react-components'
 import { GiphyFetch } from '@giphy/js-fetch-api'
 import { useState } from 'react';
 
-
+const key: string = process.env.REACT_APP_API_KEY!;
 
 function App() {
   const [query, setQuery] = useState<string>('');
   const [search, setSearch] = useState<string>('dogs');
   // use @giphy/js-fetch-api to fetch gifs, instantiate with your api key
-  const gf = new GiphyFetch('f31eKY8GpuCfx8Az5xs8cQ4irhnhVrm9')
+  const gf = new GiphyFetch(key);
 
   const onChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (event) => {
     setQuery(event.target.value);
   }
+
+  useEffect(() => {
+    console.log(key);
+  },[])
 
   const fetchGifs = (offset: number) => gf.search(search, { offset, limit: 10 })
 
