@@ -4,7 +4,7 @@ import { Grid} from '@giphy/react-components'
 import { GiphyFetch } from '@giphy/js-fetch-api'
 import { useState } from 'react';
 
-const key: string = process.env.REACT_APP_API_KEY!;
+const key: string = 'f31eKY8GpuCfx8Az5xs8cQ4irhnhVrm9';
 
 function App() {
   const [query, setQuery] = useState<string>('');
